@@ -1,5 +1,5 @@
 <template>
-    <div class="blog">
+    <div class="blog" @mouseenter="enter()" @mouseleave="leave()">
         <div class="header">
             <span class="title">{{i18n.Blog}}</span>
             <span class="more" @click="toMore()">{{i18n.More}}</span>
@@ -16,7 +16,9 @@
                 <!-- 内容 -->
                 <div class="blog_content_area">
                     <!-- 纯文本 -->
-                    <div class="info" :class="[blog.onlyWord ? 'noLine': 'line2']" v-if="blog.blogInfo.ct" v-html="blog.blogInfo.ct"></div>
+                    <div v-if="blog.blogInfo.ct" style="height: 54px">
+                        <div class="info" :class="[blog.onlyWord ? 'line4': 'line2']" v-html="blog.blogInfo.ct"></div>
+                    </div>
                     <!-- 转发 -->
                     <div class="link-media" v-if="blog.baseBlog">
                         <!-- 转发-->
@@ -90,10 +92,10 @@
                     </div>
                 </div>
             </div>
-            <div class="blog_left_arrow" @click="leftArrow">
+            <div class="blog_left_arrow" ref='left' @click="leftArrow">
                 <i class="el-icon-arrow-left"></i>
             </div>
-            <div class="blog_right_arrow" @click="rightArrow">
+            <div class="blog_right_arrow" ref='right' @click="rightArrow">
                 <i class="el-icon-arrow-right"></i>
             </div>
         </div>
@@ -135,23 +137,30 @@ export default {
     mounted() {
     },
     methods: {
+        enter() {
+            $('.blog_left_arrow').animate({ 'opacity': '1' }, 200)
+            $('.blog_right_arrow').animate({ 'opacity': '1' }, 200)
+        },
+        leave() {
+            $('.blog_left_arrow').animate({ 'opacity': '0' }, 200)
+            $('.blog_right_arrow').animate({ 'opacity': '0' }, 200)
+        },
         detailBlog(blogId) {
             app.linkplugin.openBlogDetail(blogId)
         },
         toMore() {
             app.trigger('JumpToTabView', ['DynamicView'])
         },
-
         listenWindow() {
             var that = this
             window.onresize = function () {
-                if ($(window).width() >= 1495) {
+                if ($(window).width() >= 1490) {
                     that.limitIndex = 5;
-                } else if ($(window).width() >= 1196) {
+                } else if ($(window).width() >= 1192) {
                     that.limitIndex = 6;
-                } else if ($(window).width() >= 897) {
+                } else if ($(window).width() >= 894) {
                     that.limitIndex = 7;
-                } else if ($(window).width() >= 598) {
+                } else if ($(window).width() >= 596) {
                     that.limitIndex = 8;
                 } else {
                     that.limitIndex = 9;
@@ -179,13 +188,13 @@ export default {
             if (this.index == 0) return
             this.index--
             console.log(this.index);
-            $('.blog_area').animate({ 'scrollLeft': (299 * this.index) }, 400)
+            $('.blog_area').animate({ 'scrollLeft': (298 * this.index) }, 400)
         },
         rightArrow() {
             if (this.index == this.limitIndex) return
             this.index++
             console.log(this.index);
-            $('.blog_area').animate({ 'scrollLeft': (299 * this.index) }, 400)
+            $('.blog_area').animate({ 'scrollLeft': (298 * this.index) }, 400)
         }
     }
 }

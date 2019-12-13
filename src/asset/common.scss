@@ -38,6 +38,14 @@ body {
   -webkit-box-orient: vertical;
 }
 
+.line4 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+
 ::-webkit-scrollbar-track-piece {
   width: 6px;
   background: #eee;
