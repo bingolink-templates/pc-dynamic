@@ -16,7 +16,7 @@
                 <!-- 内容 -->
                 <div class="blog_content_area">
                     <!-- 纯文本 -->
-                    <div v-if="blog.blogInfo.ct" style="height: 54px">
+                    <div v-if="blog.blogInfo.ct" style="height: 45px">
                         <div class="info" :class="[blog.onlyWord ? 'line4': 'line2']" v-html="blog.blogInfo.ct"></div>
                     </div>
                     <!-- 转发 -->
@@ -73,7 +73,7 @@
                                 <img v-if="!video.isDeleted" src="static/icon/play.png" class="icon-img" alt="">
                             </li>
                             <!--图片-->
-                            <li v-for="(photo) in blog.photos" class="rs-li" :key='photo.fileId'>
+                            <li v-for="(photo, index) in blog.photos" class="rs-li" :key='photo.fileId' v-if='index < 5'>
                                 <img class="noexist" v-if="photo.isDeleted" src="static/msg/dypic-noexist.png" />
                                 <storeImg v-else :fileId="photo.fileId" :size="photoSize" :ext="photo.ext" :autoSize="isOnePhoto" :name="photo.resourceDescription" :uname="blog.blogInfo.accountName" :utype="blog.blogInfo.accountType" :uid="blog.blogInfo.accountId" :sname="blog.blogInfo.accountName" />
                             </li>
@@ -179,6 +179,7 @@ export default {
         getData(nav) {
             apiSer.getBlog(nav, (res) => {
                 this.blogs = res
+                console.log(res, 123321);
                 this.errMsg = '';
             }, (errMsg) => {
                 this.errMsg = errMsg;

@@ -1,6 +1,6 @@
 <template>
     <img v-if="showImg" class="avatarImg" :src="imgSrc" @error="setErrorImg($event)" />
-    <span v-else class="wordAvatar">{{lastWord}}</span>
+    <span v-else class="wordAvatar" :style="{background: themeColor}">{{lastWord}}</span>
 </template>
 <script>
 import Avatar from 'ser/avater'
@@ -18,6 +18,7 @@ export default {
             imgSrc: imgSrc,
             showImg: true,
             lastWord: '',
+            themeColor: window.env.themeColor
         }
     },
     created() {
@@ -28,7 +29,7 @@ export default {
         },
         setErrorImg(e) {
             var word = util.getLastChineseWord(this.name);
-            if (word && this.type == 0) {
+            if (word && this.type == 1) {
                 this.showImg = false;
                 this.lastWord = word;
             } else {

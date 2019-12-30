@@ -1,13 +1,13 @@
 .blog {
-  padding: 12px 4px;
+  padding: 12px 4px 6px;
   background-color: #fff;
   position: relative;
 }
 
 img[src^="static/emoji/"],
 img[src^="static/face/"] {
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
   margin: 0 1px;
 }
 
@@ -29,11 +29,11 @@ img[src^="static/face/"] {
 .blog_area {
   display: flex;
   overflow-x: hidden;
-  padding: 8px 0 8px 4px;
+  padding: 5px 0 5px 4px;
   transition: transform 0.3s;
   .blog_item {
     width: 286px;
-    height: 182px;
+    height: 170px;
     flex-shrink: 0;
     background: #fff;
     box-shadow: 0px 2px 8px 4px rgba(229, 232, 237, 0.6);
@@ -56,24 +56,24 @@ img[src^="static/face/"] {
         }
         .wordAvatar {
           display: inline-block;
-          width: 40px;
-          height: 40px;
+          width: 28px;
+          height: 28px;
           background: #4ca4fe;
           color: #ffffff;
           text-align: center;
-          font-size: 22px;
-          line-height: 40px;
+          font-size: 18px;
+          line-height: 28px;
           border-radius: 20px;
         }
       }
       .blog_header_name {
         font-size: 12px;
-        color: #4ca4fe;
+        color: #333;
         padding-left: 14px;
       }
     }
     .blog_content_area {
-      padding: 8px 12px 0 12px;
+      padding: 5px 12px 0 12px;
       .info {
         word-break: break-all !important;
         font-size: 14px;
@@ -84,9 +84,10 @@ img[src^="static/face/"] {
         -webkit-user-select: initial;
         user-select: text;
         > img {
-          width: 24px;
-          height: 24px;
+          width: 22px;
+          height: 22px;
           margin: 0 1px;
+          vertical-align: text-bottom;
         }
         > a {
           cursor: default;
@@ -127,7 +128,7 @@ img[src^="static/face/"] {
           clear: both;
         }
         > .cont {
-          padding: 3px 6px 6px 10px;
+          padding: 5px 6px 6px 10px;
           margin-left: 48px;
           font-size: 14px;
           color: #252c2f;
@@ -177,9 +178,8 @@ img[src^="static/face/"] {
     }
     .blog_footer {
       display: flex;
-      margin-top: 5px;
       position: absolute;
-      bottom: 3px;
+      bottom: 5px;
       right: 0;
       div {
         display: flex;
@@ -229,7 +229,7 @@ img[src^="static/face/"] {
 .link-photo {
   width: 100%;
   display: flex;
-  overflow-x: scroll;
+  overflow-x: auto;
   > li {
     position: relative;
     height: 48px;
