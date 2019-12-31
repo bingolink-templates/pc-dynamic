@@ -8,7 +8,8 @@ var defaultAvatar = {
 }
 function getFormatAvatarPath(id) {
     var path = window.env.uamUri + '/api/uam/getAvatarById'
-    var img = path + '?id=' + id + '&type=1' + '&access_token=' + window.token + '&t=' + new Date().getTime();
+    // var img = path + '?id=' + id + '&type=1' + '&access_token=' + window.token + '&t=' + (new Date().getTime());
+    var img = path + '?id=' + id + '&type=1' + '&access_token=' + window.token + '&t=' + (new Date().getTime() + Math.ceil(Math.random()*10));
     return img
 }
 
