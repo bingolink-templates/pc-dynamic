@@ -5,7 +5,7 @@
             <span class="more" @click="toMore()">{{i18n.More}}</span>
         </div>
         <div v-if="blogs.length>0" class="blog_area" ref='blog_area'>
-            <div v-for="(blog, index) in blogs" :key='index' class="blog_item" @click='detailBlog(blog.blogInfo.blogId)'>
+            <div v-for="blog in blogs" :key='blog.blogInfo.blogId' class="blog_item" @click='detailBlog(blog.blogInfo.blogId)'>
                 <!-- 发起者 -->
                 <div class="blog_header_img_area">
                     <div class="blog_header_img">
