@@ -179,7 +179,6 @@ export default {
         getData(nav) {
             apiSer.getBlog(nav, (res) => {
                 this.blogs = res
-                console.log(res, 123321);
                 this.errMsg = '';
             }, (errMsg) => {
                 this.errMsg = errMsg;
