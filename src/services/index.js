@@ -24,6 +24,20 @@ function formatContent(blog) {
             content = content.replace(topicRegExp, '<a href="javascript:void(0);" class="topicA">' + tp + '</a>');
         });
     }
+    if (content.indexOf('static/emoji/36x36') != -1) {
+        try {
+            content = content.replace(/static\/emoji\/36x36/g, app.fs.specialPath().DIR_WEBAPP + '/html/static/emoji/36x36')
+        } catch (error) {
+        }
+    }
+
+    if (content.indexOf('static/face') != -1) {
+        try {
+            content = content.replace(/static\/face/g, app.fs.specialPath().DIR_WEBAPP + '/html/static/face')
+        } catch (error) {
+        }
+    }
+
     blog.blogInfo.ct = content;
     blog.blogInfo.accountType = accountTypeTrans[blog.blogInfo.accountType];
     if (blog.blogInfo.accountEcode) {

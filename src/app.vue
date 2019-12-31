@@ -187,13 +187,11 @@ export default {
         leftArrow() {
             if (this.index == 0) return
             this.index--
-            console.log(this.index);
             $('.blog_area').animate({ 'scrollLeft': (298 * this.index) }, 400)
         },
         rightArrow() {
             if (this.index == this.limitIndex) return
             this.index++
-            console.log(this.index);
             $('.blog_area').animate({ 'scrollLeft': (298 * this.index) }, 400)
         }
     }
